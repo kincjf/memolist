@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ResMemoMapper">
+ <!-- findById -->
+ <select id="findAll" resultType="pb.rest.jaxrs.vo.MemoData">
+  select *
+  from MEMO_LIST
+ </select>
+ <select id="findById" parameterType="int" resultType="pb.rest.jaxrs.vo.MemoData">
+  select *
+  from MEMO_LIST where _id = #{_id}
+ </select>
+ <insert id="create" parameterType="pb.rest.jaxrs.vo.MemoData" useGeneratedKeys="true" keyProperty="_id">
+  INSERT INTO MEMO_LIST (time, title, memo_text, memo_pic)
+  VALUES (
+  	#{time}, #{title}, #{memoText}, #{memoPicRawData}
+  )
+ </insert>
+ <update id="update" parameterType="pb.rest.jaxrs.vo.MemoData" useGeneratedKeys="true" keyProperty="_id">
+  UPDATE MEMO_LIST 
+  SET 
+    time = #{time} , title = #{title}, memo_text = #{memoText}, memo_pic = #{memoPicRawData}
+    where _id = #{_id} 
+ </update>
+ <delete id="remove" parameterType="int">
+  delete 
+  from MEMO_LIST
+  where _id = #{_id}
+ </delete>
+ <select id="findByTitle" parameterType="String" resultType="pb.rest.jaxrs.vo.MemoData">
+  select *
+  from MEMO_LIST where title = #{title}
+ </select>
+</mapper>
