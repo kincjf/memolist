@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+
+.wrap{
+    width:1300px;
+    margin:auto;
+}
+
+.main{
+    width:1000px;
+    height:600px;
+    float:left;
+}
+
+.navig{
+    width:300px;
+    float:left;
+    border:1px solid red;
+}
+
+.date {
+    position: fixed;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 300px;
+    height: 500px;
+}
+
+.navig_bottom{
+    position: fixed;
+    top: 570px;
+    width:300px;
+    height:100px;
+}
+
+.textWrap{
+    width:600px;
+    margin:50px auto;
+}
+
+.texthead{
+    width:250px;
+    height:auto;
+    text-align:center;
+    background-color:#e8a506;
+    margin:0px auto;
+}
+
+.textbody{
+    width:600px;
+    height:auto;
+    min-height: 50px;
+    border:1px solid #c7b1b1;
+    text-align:center;
+}
+
+.writeWrap{
+    width:800px;
+    height:580px;
+    border:1px solid black;
+    margin:40px auto;
+}
+
+.writeText{
+    width:600px;
+    height:250px;
+    border:1px solid black;
+    margin:10px 0px 0px 10px;
+}
+
+.writePic{
+    width:600px;
+    height:250px;
+    border:1px solid black;
+    margin:0px 0px 0px 10px;
+}
+
+h1 {
+    width:100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #808080;
+}
+ul {
+    margin: 1em 0 0 0;
+    padding:0;
+    list-style-type: none;
+}
+li {
+    margin-bottom: .5em;
+    padding: 0 0 .5em 1em;
+}
+
+ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover{
+    color: #fff;
+    background: #0088cc;
+    border: 1px solid #0088cc;
+}
+
+ul.nav-tabs{
+    width: 140px;
+    margin-top: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+
+ul.nav-tabs li{
+    margin: 0;
+    border-top: 1px solid #ddd;
+}
+ul.nav-tabs li:first-child{
+    border-top: none;
+}
+ul.nav-tabs li a{
+    margin: 0;
+    padding: 8px 16px;
+    border-radius: 0;
+}
+ul.nav-tabs li:first-child a{
+    border-radius: 4px 4px 0 0;
+}
+ul.nav-tabs li:last-child a{
+    border-radius: 0 0 4px 4px;
+}
