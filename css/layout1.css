@@ -1,0 +1,96 @@
+@CHARSET "EUC-KR";
+
+.test1{width:100px;height:100px; background-color:red !important;}
+.test2{width:100px;height:100px; background-color:blue;}
+.rowWrap{
+	width:80%;
+	float: left;
+	border-right:1px solid black;
+	height:auto;
+	min-height: 500px;	
+}
+
+
+.wrap{
+	width:100%;
+	height:auto;
+	margin:auto;
+}
+
+.navig{
+	width:20%;
+	height:auto;
+	float:left;
+	background-color:white;
+}
+
+
+.navig_bottom{
+	margin-top:400px;
+	width:100%;
+	height:auto;
+	float:left;
+}
+
+.textWrap{
+	width:100%;
+	height:auto;
+	margin:30px auto;
+}
+
+.texthead{
+	font-size: 1.3em;
+	width:30%;
+	height:auto;
+	text-align:center;
+	background-color:#e8a506;
+	margin:0px auto;
+}
+
+.textbody{
+	font-size: 1.5em;
+	width:100%;
+	height:auto;
+	min-height:100px;
+	border:1px solid #c7b1b1;
+	margin:auto;
+	text-align:center;
+}
+
+.writeWrap{
+	width:800px;
+	height:600px;
+	border:1px solid white;
+	margin:40px auto;
+}
+
+.writeText{
+	width:600px;
+	height:250px;
+	border:1px solid white;
+	margin:10px 0px 0px 10px;
+	border-top:1px solid black;
+	border-left:1px solid black;
+	border-right:1px solid black;
+	border-bottom:1px solid gray;
+	float:left;
+	
+}
+
+.writePic{
+	width:600px;
+	height:300px;
+	border-left:1px solid black;
+	border-right:1px solid black;
+	border-bottom:1px solid black;
+	margin:0px 0px 0px 10px;
+	float:left;	
+}
+
+.calendar{
+	width:180px;
+	height:30px;
+	border: 1px solid white;
+	float:right;
+	margin:10px 0px 0px 0px;
+}
