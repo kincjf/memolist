@@ -66,7 +66,7 @@
                  ctx.fillStyle = color;
                  ctx.fillRect(e.offsetX, e.offsetY, dot, dot);
              }
-
+          
              // 지우기
              function clearCanvas() {
                  ctx.clearRect(0, 0, cnvs.width, cnvs.height);
@@ -91,9 +91,9 @@
              });
 
              // 저장하기
-             $('button[id="btnSave"]').click(function () {
-                 saveImg();
-             });
+             //$('button[id="btnSave"]').click(function () {
+             //    saveImg();
+             //});
 
              // canvas 사용불가
          } else {
