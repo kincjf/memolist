@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Final Memo!!!</title>
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" media="screen" href="css/bootstrap.min.css" />
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="wrap"></div>
+
+<!-- TEMPLATE -->
+<!-- main layout-template -->
+<script type="text/template" id="layout-template">
+    <h1>Memo</h1>
+    <!-- left side memoCollectionView template -->
+    <div class="main"></div>
+    <!-- right side dateCollectionView template -->
+    <div class="navig">
+        <div class="date" id="myScrollspy"></div>
+        <div class="navig_bottom">
+            <button type="button" class="btn btn-default"
+                    style="width:100%; height:100%; margin:1px;">글쓰기</button>
+        </div>
+    </div>
+</script>
+
+<!-- memoItemView-template -->
+<script type="text/template" id="memoItemView-template">
+    <div class="texthead" id="section<%= i %>">
+        <%= date %>
+    </div>
+    <div class="textbody">
+        <%= text %>
+    </div>
+</script>
+
+<!-- dateItemView-template -->
+<script type="text/template" id="dateItemView-template">
+    <li class="active"><a href="#section<%= i %>"><%= date %></a></li>
+</script>
+
+
+<!-- libraries -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/backbone.js"></script>
+<script type="text/javascript" src="js/backbone.marionette.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+<!-- app code -->
+<script type="text/javascript" src="memo.js"></script>
+
+</body>
+</html>

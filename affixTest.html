@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Affix Test</title>
+    <link rel="stylesheet" media="screen" href="css/bootstrap.min.css" />
+    <style type="text/css">
+        .content {
+            float: left;
+            width: 79%;
+            height: 200px;
+            border: 1px solid red;
+            margin-bottom: 50px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .list {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 20%;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#myScrollspy">
+    <div class="container">
+        <div class="content" id="section1">
+            <p>1번</p>
+        </div>
+
+        <div class="content" id="section2">
+            <p>2번</p>
+        </div>
+
+        <div class="content" id="section3">
+            <p>3번</p>
+        </div>
+
+        <div class="content" id="section4">
+            <p>4번</p>
+        </div>
+
+        <div class="content" id="section5">
+            <p>5번</p>
+        </div>
+
+        <div class="content" id="section6">
+            <p>6번</p>
+        </div>
+
+        <div class="content" id="section7">
+            <p>7번</p>
+        </div>
+
+        <div class="content" id="section8">
+            <p>8번</p>
+        </div>
+
+        <div class="content" id="section9">
+            <p>9번</p>
+        </div>
+
+        <div class="content" id="section10">
+            <p>10번</p>
+        </div>
+    </div>
+
+    <div class="list" id="myScrollspy">
+        <ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+            <li class="active"><a href="#section1">1번</a></li>
+            <li><a href="#section2">2번</a></li>
+            <li><a href="#section3">3번</a></li>
+            <li><a href="#section4">4번</a></li>
+            <li><a href="#section5">5번</a></li>
+            <li><a href="#section6">6번</a></li>
+            <li><a href="#section7">7번</a></li>
+            <li><a href="#section8">8번</a></li>
+            <li><a href="#section9">9번</a></li>
+            <li><a href="#section10">10번</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/backbone.js"></script>
+    <script type="text/javascript" src="js/backbone.marionette.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

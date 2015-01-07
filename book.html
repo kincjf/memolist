@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Book Copy</title>
+    <style type="text/css">
+        #AppBase {
+            border: 1px solid red;
+        }
+        #appContainer {
+            width: 400px;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            width:100%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            border-bottom: 1px solid #808080;
+        }
+        ul {
+            margin: 1em 0 0 0;
+            padding:0;
+            list-style-type: none;
+            width: 400px;
+        }
+        li {
+            margin-bottom: .5em;
+            padding: 0 0 .5em 1em;
+            border-bottom: 1px solid #dedede;
+        }
+    </style>
+</head>
+<body>
+    <div id="AppBase"></div>
+
+    <!--main layout template -->
+    <script type="text/template" id="layout-template">
+        <h1>Main Template</h1>
+        <div id="regionOne"></div>
+    </script>
+
+    <!--bookItemView template -->
+    <script type="text/template" id="itemView-template">
+        <span><b>Title</b>: <%= title %></span><br>
+        <span><b>author</b>: <%= authorLast %>, <%= authorFirst %></span>
+    </script>
+
+
+    <!-- libraries -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/backbone.js"></script>
+    <script type="text/javascript" src="js/backbone.marionette.js"></script>
+
+    <!-- app code -->
+    <script type="text/javascript" src="book.js"></script>
+</body>
+</html>
