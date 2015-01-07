@@ -15,24 +15,22 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
     //Memo Data Backbone, Marionette
     /* definition for book model, with default example of data structure */
     module.MemoModel = Backbone.Model.extend({
-        urlRoot: 'pastelbook.com',
        defaults: {
-           date: '',
-           text: '',
-           picture: '',
-           i: ''
-       }
+           _id: '',
+           time: '',
+           title: '',
+           memoText : '',
+           memoPicRawData : null
+       },
+        idAttribute: "_id"
         //initialize : function(){console.log("Memo Model Initialize");}
     });
 
     /* definition for book collection */
     module.MemoCollection = Backbone.Collection.extend({
         model: module.MemoModel,
-
-        urlRoot: 'pastelbook.com',
-        url: 'memolist/rest/memo',
+        url: 'rest/memo',
         initialize: function(){
-            this.fetch();
             console.log("Memo Collection Initialize")
         }
     });
@@ -58,7 +56,9 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
         /* explicitly set the childview (formerly 'itemView') used to display the models in this collection */
         childView: module.MemoItemView,
 
-        initialize: function(){ console.log('MemoCollectionView: initialize') },
+        initialize: function(){
+            this.collection.fetch();
+            console.log('MemoCollectionView: initialize') },
         onRender: function(){ console.log('MemoCollectionView: onRender') },
         onShow: function(){ console.log('MemoCollectionView: onShow') }
     });
@@ -74,6 +74,7 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
 
     module.DateCollection = Backbone.Collection.extend({
         model: module.DateModel,
+        url: 'rest/memo',
 
         initialize : function(){console.log("Date Collection Initialize")}
     });
@@ -96,7 +97,12 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
         /* explicitly set the childview (formerly 'itemView') used to display the models in this collection */
         childView: module.DateItemView,
 
-        initialize: function(){ console.log('DateCollectionView: initialize') },
+        initialize: function(){
+            var time = [];
+            //time.push(this.collection.get("time"));
+            this.collection.fetch();
+            console.log('DateCollectionView: initialize')
+        },
         onRender: function(){ console.log('DateCollectionView: onRender') },
         onShow: function(){ console.log('DateCollectionView: onShow') }
     });
@@ -127,30 +133,8 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
             //MemoRegion에 memocollectionview를 보여준다
             this.MemoRegion.show(memoCollectionView);
 
-
-            var dateArray = [];
-            dateArray.push({date: '12월 29일', i: 1});
-            dateArray.push({date: '12월 30일', i: 2});
-            dateArray.push({date: '1월 1일', i: 3});
-            dateArray.push({date: '1월 15일', i: 4});
-            dateArray.push({date: '2월 14일', i: 5});
-            dateArray.push({date: '2월 14일', i: 6});
-            dateArray.push({date: '2월 14일', i: 7});
-            dateArray.push({date: '2월 14일', i: 8});
-            dateArray.push({date: '2월 14일', i: 9});
-            dateArray.push({date: '2월 14일', i: 10});
-            dateArray.push({date: '2월 14일', i: 11});
-            dateArray.push({date: '2월 14일', i: 12});
-            dateArray.push({date: '2월 14일', i: 13});
-            dateArray.push({date: '2월 14일', i: 14});
-            dateArray.push({date: '2월 14일', i: 15});
-            dateArray.push({date: '2월 14일', i: 16});
-            dateArray.push({date: '2월 14일', i: 17});
-            dateArray.push({date: '2월 14일', i: 18});
-            dateArray.push({date: '2월 14일', i: 19});
-
             //date정보를 model로 collection을 만듬
-            var dateCollection = new module.DateCollection(dateArray);
+            var dateCollection = new module.DateCollection();
             //dateCollectionView에서 dateCollection을 사용
             var dateCollectionView = new module.DateCollectionView({collection: dateCollection});
             //DateRegion에 dateCollectionView를 보여준다.

@@ -27,17 +27,21 @@
 
 <!-- memoItemView-template -->
 <script type="text/template" id="memoItemView-template">
-    <div class="texthead" id="section<%= i %>">
-        <%= date %>
+    <div class="texthead" id="section<%= _id %>">
+        <%= time %>
     </div>
     <div class="textbody">
-        <%= text %>
+        <ul>
+            <li><%= title %></li>
+            <li><%= memoText %></li>
+            <li><%= memoPicRawData %></li>
+        </ul>
     </div>
 </script>
 
 <!-- dateItemView-template -->
 <script type="text/template" id="dateItemView-template">
-    <li class="active"><a href="#section<%= i %>"><%= date %></a></li>
+    <li class="active"><a href="#section<%= _id %>"><%= time %></a></li>
 </script>
 
 
