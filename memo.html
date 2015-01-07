@@ -5,6 +5,7 @@
     <title>Final Memo!!!</title>
     <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <link rel="stylesheet" media="screen" href="css/bootstrap.min.css" />
+
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 <div class="wrap"></div>
@@ -19,6 +20,8 @@
     <div class="navig">
         <div class="date" id="myScrollspy"></div>
         <div class="navig_bottom">
+            <input type="text" placeholder="메모입력" id="memodata">
+            <button id="save">저장</button>
             <button type="button" class="btn btn-default"
                     style="width:100%; height:100%; margin:1px;">글쓰기</button>
         </div>
@@ -51,9 +54,31 @@
 <script type="text/javascript" src="js/backbone.js"></script>
 <script type="text/javascript" src="js/backbone.marionette.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 
 <!-- app code -->
 <script type="text/javascript" src="memo.js"></script>
+
+<!-- saveBtn click function -->
+<script type="text/javascript" >
+    $(function() {
+        Backbone.emulateJSON = true;
+
+        $('#save').click(function () {
+            console.log("클릭!");
+             memoCollection.create({
+             time: 123,
+                 title: 'wpahr',
+             memoText: 'plz', //$("#memodata").val(),
+             memoPicRawData: null
+             }, {
+                 headers: {
+                     "Content-Type" :'application/json'
+                 }
+             });
+        });
+    });
+</script>
 
 </body>
 </html>

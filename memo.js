@@ -1,4 +1,9 @@
 /* create a new instance of the Marionette app */
+var memoCollection;
+var memoCollectionView;
+var dateCollection;
+var dateCollectionView;
+
 var app = new Backbone.Marionette.Application();
 
 /* add the initial region which will contain the app */
@@ -6,8 +11,6 @@ app.addRegions({
     /* reference to container element in the HTML file */
     appRegion: '.wrap'
 });
-
-
 
 /* define a module to keep the code modular */
 app.module('App', function(module, App, Backbone, Marionette, $, _){
@@ -30,6 +33,7 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
     module.MemoCollection = Backbone.Collection.extend({
         model: module.MemoModel,
         url: 'rest/memo',
+
         initialize: function(){
             console.log("Memo Collection Initialize")
         }
@@ -43,9 +47,9 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
         template: '#memoItemView-template',
 
         /* used to show the order in which these method are called */
-        initialize: function(){ console.log('MemoItemView: initialize >>> ' + this.model.get('date')) },
-        onRender: function(){ console.log('MemoItemView: onRender >>> ' + this.model.get('date')) },
-        onShow: function(){ console.log('MemoItemView: onShow >>> ' + this.model.get('date')) }
+        initialize: function(){ console.log('MemoItemView: initialize >>> ' + this.model.get('time')) },
+        onRender: function(){ console.log('MemoItemView: onRender >>> ' + this.model.get('time')) },
+        onShow: function(){ console.log('MemoItemView: onShow >>> ' + this.model.get('time')) }
     });
 
     /* definition for collection view */
@@ -98,13 +102,17 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
         childView: module.DateItemView,
 
         initialize: function(){
-            var time = [];
-            //time.push(this.collection.get("time"));
             this.collection.fetch();
             console.log('DateCollectionView: initialize')
         },
         onRender: function(){ console.log('DateCollectionView: onRender') },
         onShow: function(){ console.log('DateCollectionView: onShow') }
+    });
+
+
+    //WriteItemView
+    module.WriteItemView = Marionette.ItemView.extend({
+        template: '#writeItemView-template'
     });
 
     //LayoutView
@@ -127,18 +135,19 @@ app.module('App', function(module, App, Backbone, Marionette, $, _){
             console.log('main layout: onRender');
 
             //memo정보들을 model로 collection을 만듬
-            var memoCollection = new module.MemoCollection();
+            memoCollection = new module.MemoCollection();
             //memoCollectionView에서 memoCollection사용
-            var memoCollectionView = new module.MemoCollectionView({collection: memoCollection});
+            memoCollectionView = new module.MemoCollectionView({collection: memoCollection});
             //MemoRegion에 memocollectionview를 보여준다
             this.MemoRegion.show(memoCollectionView);
 
             //date정보를 model로 collection을 만듬
-            var dateCollection = new module.DateCollection();
+            dateCollection = new module.DateCollection();
             //dateCollectionView에서 dateCollection을 사용
-            var dateCollectionView = new module.DateCollectionView({collection: dateCollection});
+            dateCollectionView = new module.DateCollectionView({collection: dateCollection});
             //DateRegion에 dateCollectionView를 보여준다.
             this.DateRegion.show(dateCollectionView);
+
         }
     });
 
