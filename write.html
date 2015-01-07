@@ -13,7 +13,7 @@
 	<div class="writeWrap">
 		<div class="writeText" id="text">
 		<!-- text가 위치합니다. -->
-		이곳의 데이터를 뽑아야 함.
+		<textarea style="width:100%;height:100%;text-align:center;" id="textarea"></textarea>
 		</div>
 		<div class="calendar">
 				<!-- 달력 -->
@@ -23,6 +23,7 @@
 		<div class="writePic">
 		<!-- 그림그리기  -->
             <canvas id="cnvs" width="598" height="200"></canvas>
+            <!-- <img id="myImage" />  -->
      <br />
      <div>
          <!-- 도트크기 -->
@@ -46,12 +47,21 @@
      <br />
      <button id="btnDel">지우기</button>
      &nbsp;
-     <button id="btnSave">저장하기</button>
-		pic
+     <button onclick="save()">저장하기</button>
 		</div>
 	</div>
 	<script>
-	</script>
+		var value={};
+		
+		function save(){
+			value.text = $("#textarea").val();
+			value.cal = $("#cal").val();
+			var canvas = document.getElementById('cnvs')
+			value.pic = canvas.toDataURL();
+			
+			alert(value.pic);
+		}
 	
+	</script>
 </body>
 </html>
