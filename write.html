@@ -55,11 +55,11 @@
 		
 		function save(){
 			value.text = $("#textarea").val();
-			value.cal = $("#cal").val();
+			//value.cal = $("#cal").val();
+			value.time = new Date().getTime();
 			var canvas = document.getElementById('cnvs')
 			value.pic = canvas.toDataURL();
 			
-			alert(value.pic);
 		}
 	
 	</script>
