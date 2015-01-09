@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="EUC-KR">
+	<title>Memo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- 부트스트랩 -->
+	<link rel="stylesheet" type="text/css" href="css/layout1.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="js/click_cal.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="js/myjs.js"></script>
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+	<style>
+	#write_view{display: none;}
+	</style>
+	
+	<style>
+	#main{display;}
+	</style>
+
+<!-- 버튼 이벤트 -->
+<SCRIPT>
+	function open_write() {
+		$('#write_view').css('display', 'inline');
+	}
+	function hide_main() {
+		$('#main_view').css('display', 'none');
+	}
+	function close_write() {
+		$('#write_view').css('display', 'none');
+	}
+	function open_main() {
+		$('#main_view').css('display', 'inline');
+	}
+	function save_message() {
+		alert("저장되었습니다");
+	}
+	function cnacle_message() {
+		alert("취소되었습니다");
+	}
+
+</SCRIPT>
+
+
+</head>		
+
+<body>
+	<p ALIGN="center">
+	<FONT SIZE="6" COLOR="red">Simple Diary</FONT>
+	</p>
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
+    <script src="js/respond.js"></script>
+<div id="main_view">
+	<div class="wrap">
+		<div class="container"  style="background-color:white;">
+			<div class="rowWrap">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+				<div class="navig">
+					<!-- 날짜 네비게이션 -->
+					<div>날짜리스트</div>
+					<div>
+					<br><br><br><br><br><br>
+						<div>
+						<INPUT style="width:100%; height: 100px;" type='BUTTON' value='메모하기' onclick='open_write();hide_main();'>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!-- write.html -->
+	<div id="write_view">
+		<div class="writeWrap">
+		<div class="writeText" id="text">
+		<!-- text가 위치합니다. -->
+		<textarea style="width:100%;height:100%;text-align:center;" id="textarea"></textarea>
+		</div>
+		<div class="calendar">
+				<!-- 달력 -->
+				<input type="text" OnClick="Calendar(this, 'down','no');"
+				placeholder="날짜를 선택하세요.">
+		</div>
+		<div class="writePic">
+		<!-- 그림그리기  -->
+            <canvas id="cnvs" width="598" height="200"></canvas>
+            <!-- <img id="myImage" />  -->
+     <br />
+     <div>
+         <!-- 도트크기 -->
+        <select id="dot">
+             <option value="1">1px</option>
+             <option value="2">2px</option>
+             <option value="5">5px</option>
+             <option value="10">10px</option>
+         </select>
+         &nbsp;
+         <!-- 색깔 -->
+        <select id="color">
+             <option value="rgb(0, 0, 0)">black</option>
+             <option value="rgb(255, 0, 0)">red</option>
+             <option value="rgb(0, 255, 0)">green</option>
+             <option value="rgb(0, 0, 255)">blue</option>
+             <option value="rgb(255, 255, 0)">yellow</option>
+             <option value="rgb(255, 255, 255)">white</option>
+         </select>
+     </div>
+     <br />
+     <button id="btnDel">지우기</button>
+     &nbsp;
+     <button onclick="save();close_write();open_main();save_message()">저장하기</button>
+     <button onclick="close_write();open_main();cancle_message()">취소</button>
+		</div>
+	</div>
+	<script>
+		var value={};
+		
+		function save(){
+			value.text = $("#textarea").val();
+			//value.cal = $("#cal").val();
+			value.time = new Date().getTime();
+			var canvas = document.getElementById('cnvs')
+			value.pic = canvas.toDataURL();
+			
+		}
+	
+	</script>
+</div>
+</body>	
+</html>

@@ -1,0 +1,155 @@
+<html>
+<head>
+	<title>Memo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 부트스트랩 -->
+    <link rel="stylesheet" type="text/css" href="css/layout1.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+</head>
+
+<!-- 버튼 이벤트 -->
+<SCRIPT LAUNGUAGE='JAVASCRIPT'>
+function test(){
+	$('#a').css('display','inline');
+}
+</SCRIPT>
+
+<body>
+    <!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- 모든 합쳐진 플러그인을 포함하거나 (아래) 필요한 각각의 파일들을 포함하세요 -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
+    <script src="js/respond.js"></script>
+
+	<div class="wrap">
+		<div class="container"  style="background-color:white;">
+			<div class="rowWrap">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8">
+						<div class="textWrap">
+							<div class="texthead">12월30일</div>
+							<div class="textbody">서울대전대구부산</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="navig">
+				<!-- 날짜 네비게이션 -->
+				<div>1월28일</div>
+				<div class="navig_bottom">
+
+					<INPUT type='BUTTON' value='버튼' onclick='test()'>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+</html>
+
+<!-- ---------------------여기섭터 메모 페이지------------------- -->
+
+<html>
+	<style >
+#a {
+	display: none;
+}
+</style>
+
+<html>
+
+<div id="a">
+<head>
+<meta charset="EUC-KR">
+	<title>Write memo</title>
+	<link rel="stylesheet" type="text/css" href="css/layout1.css" />
+	<link rel="stylesheet" media="screen" href="css/bootstrap.min.css" />
+	<script src="js/click_cal.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="js/myjs.js"></script>
+</head>
+<body>
+	<div class="writeWrap">
+		<div class="writeText" id="text">
+		<!-- text가 위치합니다. -->
+		이곳의 데이터를 뽑아야 함.
+		</div>
+		<div class="calendar">
+				<!-- 달력 -->
+				<input type="text" OnClick="Calendar(this, 'down','no');"
+				placeholder="날짜를 선택하세요.">
+		</div>
+		<div class="writePic">
+		<!-- 그림그리기  -->
+            <canvas id="cnvs" width="598" height="200"></canvas>
+     <br />
+     <div>
+         <!-- 도트크기 -->
+        <select id="dot">
+             <option value="1">1px</option>
+             <option value="2">2px</option>
+             <option value="5">5px</option>
+             <option value="10">10px</option>
+         </select>
+         &nbsp;
+         <!-- 색깔 -->
+        <select id="color">
+             <option value="rgb(0, 0, 0)">black</option>
+             <option value="rgb(255, 0, 0)">red</option>
+             <option value="rgb(0, 255, 0)">green</option>
+             <option value="rgb(0, 0, 255)">blue</option>
+             <option value="rgb(255, 255, 0)">yellow</option>
+             <option value="rgb(255, 255, 255)">white</option>
+         </select>
+     </div>
+     <br />
+     <button id="btnDel">지우기</button>
+     &nbsp;
+     <button id="btnSave">저장하기</button>
+		pic
+		</div>
+	</div>
+	<script>
+	</script>
+	
+</body>
+	</div>
+</html>
