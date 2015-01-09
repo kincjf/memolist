@@ -29,6 +29,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   from MEMO_LIST
   where _id = #{_id}
  </delete>
+ <delete id="removeAll">
+  delete 
+  from MEMO_LIST
+ </delete>
  <select id="findByTitle" parameterType="String" resultType="pb.rest.jaxrs.vo.MemoData">
   select *
   from MEMO_LIST where title = #{title}

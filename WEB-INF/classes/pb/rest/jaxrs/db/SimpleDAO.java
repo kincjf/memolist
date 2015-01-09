@@ -13,6 +13,8 @@ public interface SimpleDAO<T> {
 	public T update(T memoData);
 
 	public void remove(int id);
+	
+	public void removeAll();
 
 	public List<T> findByTitle(String title);
 

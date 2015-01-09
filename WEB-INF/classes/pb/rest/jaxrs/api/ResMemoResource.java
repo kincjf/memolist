@@ -12,6 +12,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import pb.rest.jaxrs.db.ResMemoDAO;
 import pb.rest.jaxrs.vo.MemoData;
@@ -55,8 +56,16 @@ public class ResMemoResource implements Serializable {
 	}
 
 	@DELETE @Path("{_id}")
-	@Produces({ MediaType.APPLICATION_JSON }) // MediaType.APPLICATION_XML,
-	public void remove(@PathParam("_id") int _id){
+	@Produces({ MediaType.TEXT_HTML }) // MediaType.APPLICATION_XML,
+	public Response remove(@PathParam("_id") int _id){
 		dao.remove(_id);
+		return Response.status(200).entity("selected memo have been successfully removed").build();
+	}
+	
+	@DELETE 
+	@Produces({ MediaType.TEXT_HTML }) // MediaType.APPLICATION_XML,
+	public Response removeAll(){
+		dao.removeAll();
+		return Response.status(200).entity("All of memoList data have been successfully removed").build();
 	}
 }

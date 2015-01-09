@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import pb.rest.jaxrs.vo.MemoData;
+
 public class MemoDAO<T> implements SimpleDAO<T> {
 	static String objectName = null;
 	static SqlSessionFactory sqlMapper = null;
@@ -73,7 +75,7 @@ public class MemoDAO<T> implements SimpleDAO<T> {
 
 	public T update(T memoData) {
 		init();
-		session = sqlMapper.openSession();
+		session = sqlMapper.openSession(true);
 		session.update(objectName+"Mapper.update", memoData);
 		//result = (Image)session.selectOne("ImageMapper.findByNotId", picture);
 		session.close();
@@ -83,8 +85,15 @@ public class MemoDAO<T> implements SimpleDAO<T> {
 
 	public void remove(int _id) {
 		init();
-		session = sqlMapper.openSession();
-		session.insert(objectName+"Mapper.remove", _id);
+		session = sqlMapper.openSession(true);
+		session.delete(objectName+"Mapper.remove", _id);
+		session.close();
+	}
+	
+	public void removeAll() {
+		init();
+		session = sqlMapper.openSession(true);
+		session.delete(objectName+"Mapper.removeAll");
 		session.close();
 	}
 	
