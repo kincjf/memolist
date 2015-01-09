@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   from MEMO_LIST where _id = #{_id}
  </select>
  <insert id="create" parameterType="pb.rest.jaxrs.vo.MemoData" useGeneratedKeys="true" keyProperty="_id">
-  INSERT INTO MEMO_LIST (time, title, memo_text, memo_pic)
+  INSERT INTO MEMO_LIST (time, title, memoText, memoPicRawData)
   VALUES (
   	#{time}, #{title}, #{memoText}, #{memoPicRawData}
   )
@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  <update id="update" parameterType="pb.rest.jaxrs.vo.MemoData" useGeneratedKeys="true" keyProperty="_id">
   UPDATE MEMO_LIST 
   SET 
-    time = #{time} , title = #{title}, memo_text = #{memoText}, memo_pic = #{memoPicRawData}
+    time = #{time} , title = #{title}, memoText = #{memoText}, memoPicRawData = #{memoPicRawData}
     where _id = #{_id} 
  </update>
  <delete id="remove" parameterType="int">
